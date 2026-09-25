@@ -11,10 +11,10 @@ export default function Contact() {
           <h3 className="text-[34px] leading-[1.02] font-semibold tracking-[-0.035em] md:text-[44px] lg:text-[56px]">
             Hiring a senior full-stack engineer?
           </h3>
-          <p className="text-base leading-relaxed text-fg-2 md:text-lg">
+          <p className="text-base/relaxed text-fg-2 md:text-lg">
             I am open to senior full-stack and backend roles, remote or in Tbilisi. My inbox is open.
           </p>
-          <a href={`mailto:${site.email}`} className="btn btn-primary self-stretch md:self-start md:px-6 md:py-4">
+          <a href={`mailto:${site.email}`} className="btn self-stretch btn-primary md:self-start md:px-6 md:py-4">
             say hello →
           </a>
         </div>

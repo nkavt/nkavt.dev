@@ -19,7 +19,7 @@ export default function Hero({ hero }: Props) {
   const lineCount = code.vars.length + 4;
 
   return (
-    <section className="gutter grid-bg flex flex-col gap-8 pt-12 pb-10 md:gap-[88px] md:pt-28 md:pb-0">
+    <section className="flex flex-col gap-8 grid-bg gutter pt-12 pb-10 md:gap-[88px] md:pt-28 md:pb-0">
       <div className="grid items-center gap-12 lg:grid-cols-[1fr_580px] lg:gap-[72px]">
         <div className="flex flex-col gap-5 md:gap-7">
           {site.available && (
@@ -40,7 +40,7 @@ export default function Hero({ hero }: Props) {
             ))}
           </h1>
           <div className="font-mono text-[15px] text-accent md:text-lg">{hero.role}</div>
-          <p className="max-w-[560px] text-base leading-relaxed text-fg-2 md:text-[19px]">{hero.lede}</p>
+          <p className="max-w-[560px] text-base/relaxed text-fg-2 md:text-[19px]">{hero.lede}</p>
           <div className="flex flex-col gap-2.5 md:flex-row md:gap-3">
             <a href={hero.primaryCta.href} className="btn btn-primary">
               {hero.primaryCta.label}

@@ -64,7 +64,7 @@ export default function Navbar({ currentPath = '/' }: Props) {
   const current = (href: string) => (onHome ? sectionId(href) === activeSection : isActive(href, currentPath));
 
   return (
-    <nav className="gutter sticky top-0 z-50 flex h-16 items-center justify-between border-b border-line bg-bg/92 font-mono backdrop-blur md:h-[72px]">
+    <nav className="sticky top-0 z-50 flex h-16 items-center justify-between border-b border-line bg-bg/92 gutter font-mono backdrop-blur-sm md:h-[72px]">
       <a href="/" className="flex items-center gap-0.5 py-3 text-[15px] font-semibold hover:text-fg md:text-base" aria-label="Home">
         <span className="text-accent">~/</span>
         <span>{site.handle}</span>
@@ -115,7 +115,7 @@ export default function Navbar({ currentPath = '/' }: Props) {
       </button>
 
       {open && (
-        <div id="mobile-menu" className="gutter absolute inset-x-0 top-full flex flex-col border-b border-line bg-bg pt-2 pb-4 md:hidden">
+        <div id="mobile-menu" className="absolute inset-x-0 top-full flex flex-col border-b border-line bg-bg gutter pt-2 pb-4 md:hidden">
           {navLinks.map((link) => (
             <a
               key={link.href}

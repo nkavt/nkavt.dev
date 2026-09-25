@@ -23,7 +23,7 @@ export default function FeaturedProject({ project, index, facts = 'chips' }: Pro
               height={project.cover.height}
               alt={project.cover.alt}
               loading="lazy"
-              className="block aspect-[3/2] w-full object-cover object-left-top"
+              className="block aspect-3/2 w-full object-cover object-top-left"
             />
           ) : (
             <div className="relative flex h-[200px] flex-col items-center justify-center gap-3 md:h-[340px] md:gap-4">

@@ -62,56 +62,47 @@
   }
 }
 
-@layer components {
-  /* Page gutter: 20px on mobile, 96px on desktop */
-  .gutter {
-    @apply px-5 md:px-24;
-  }
+/* Page gutter: 20px on mobile, 96px on desktop */
+@utility gutter {
+  @apply px-5 md:px-24;
+}
 
-  .btn {
-    @apply inline-flex items-center justify-center gap-2.5 rounded-lg px-[22px] py-[15px] font-mono text-[15px] whitespace-nowrap;
-  }
+@utility btn {
+  @apply inline-flex items-center justify-center gap-2.5 rounded-lg px-[22px] py-[15px] font-mono text-[15px] whitespace-nowrap;
+}
 
-  .btn-primary {
-    @apply bg-accent font-semibold text-bg hover:text-bg hover:brightness-108;
-  }
+@utility btn-primary {
+  @apply bg-accent font-semibold text-bg hover:text-bg hover:brightness-108;
+}
 
-  .btn-ghost {
-    @apply border border-line-3 bg-bg;
-  }
+@utility btn-ghost {
+  @apply border border-line-3 bg-bg hover:border-fg-3;
+}
 
-  .chip {
-    @apply rounded-md border border-line-3 px-2.5 py-1.5 font-mono text-xs text-fg-2;
-  }
+@utility chip {
+  @apply rounded-md border border-line-3 px-2.5 py-1.5 font-mono text-xs text-fg-2;
+}
 
-  .status-pill {
-    @apply inline-flex items-center gap-2 rounded-full bg-green/12 px-2.5 py-[5px] font-mono text-[13px] text-green-2;
-  }
+@utility status-pill {
+  @apply inline-flex items-center gap-2 rounded-full bg-green/12 px-2.5 py-[5px] font-mono text-[13px] text-green-2;
+}
 
-  .status-dot {
-    @apply size-1.5 rounded-full bg-green;
-  }
+@utility status-dot {
+  @apply size-1.5 rounded-full bg-green;
+}
 
-  .grid-bg {
-    background-image: linear-gradient(var(--color-grid) 1px, transparent 1px),
-      linear-gradient(90deg, var(--color-grid) 1px, transparent 1px);
-    background-size: 32px 32px;
+@utility grid-bg {
+  background-image: linear-gradient(var(--color-grid) 1px, transparent 1px),
+    linear-gradient(90deg, var(--color-grid) 1px, transparent 1px);
+  background-size: 32px 32px;
+  @variant md {
+    background-size: 48px 48px;
   }
+}
 
-  @media (min-width: 900px) {
-    .grid-bg {
-      background-size: 48px 48px;
-    }
-  }
-
-  /* Terminal window inner surfaces */
-  .prompt {
-    @apply text-accent;
-  }
-
-  .label-mono {
-    @apply font-mono text-[13px] text-fg-3;
-  }
+/* Terminal prompt symbol */
+@utility prompt {
+  @apply text-accent;
 }
 
 /* Markdown body of a project README (src/content/projects/*.md) */
