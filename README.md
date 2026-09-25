@@ -11,7 +11,7 @@ All copy lives in content files. Adding a project or a job means adding a markdo
 - **Tailwind 4** with the design tokens in `src/styles/global.css`. No per-component CSS files.
 - **Content collections** for projects, work history and the hero copy, defined in `src/content.config.ts`.
 
-Requires Node 22 or newer.
+Requires Node 24 (the current LTS, see `.nvmrc`).
 
 ## Commands
 
