@@ -31,6 +31,7 @@ export default function Projects({ projects }: Props) {
             <a
               key={p.slug}
               href={p.href}
+              data-astro-prefetch="viewport"
               className="flex flex-col gap-3.5 rounded-[14px] border border-line-2 bg-surface p-5 text-fg hover:border-line-3 hover:text-fg md:p-7"
             >
               <div className="flex items-center gap-2.5 font-mono text-[13px] text-fg-3">
