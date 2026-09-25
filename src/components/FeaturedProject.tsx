@@ -60,7 +60,7 @@ export default function FeaturedProject({ project, index, facts = 'chips' }: Pro
         </div>
 
         <h3 className="text-[28px] leading-none font-semibold tracking-[-0.03em] md:text-[44px]">
-          <a href={project.href} className="hover:text-fg">
+          <a href={project.href} data-astro-prefetch="viewport" className="hover:text-fg">
             {project.name}
           </a>
         </h3>
