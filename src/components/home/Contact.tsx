@@ -48,7 +48,7 @@ export default function Contact() {
         </Window>
       </div>
 
-      <Footer inline right={<span>built with astro · hosted on [host]</span>} />
+      <Footer inline right={<span>built with astro · hosted on github pages</span>} />
     </Section>
   );
 }
