@@ -19,9 +19,14 @@ function sectionId(href: string) {
 /** On the home page, track which section is under the reader and report its id. */
 function useScrollSpy(enabled: boolean, ids: string[]) {
   const [active, setActive] = useState<string | null>(null);
+  // Join the ids so the effect depends on their content, not on a fresh array each render.
+  const idList = ids.join(',');
   useEffect(() => {
     if (!enabled) return;
-    const sections = ids.map((id) => document.getElementById(id)).filter((el): el is HTMLElement => !!el);
+    const sections = idList
+      .split(',')
+      .map((id) => document.getElementById(id))
+      .filter((el): el is HTMLElement => !!el);
     let frame = 0;
     const update = () => {
       frame = 0;
@@ -43,7 +48,7 @@ function useScrollSpy(enabled: boolean, ids: string[]) {
       window.removeEventListener('resize', onScroll);
       if (frame) cancelAnimationFrame(frame);
     };
-  }, [enabled, ids.join(',')]);
+  }, [enabled, idList]);
   return active;
 }
 
