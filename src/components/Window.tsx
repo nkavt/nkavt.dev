@@ -35,9 +35,9 @@ export default function Window({ title, meta, dots, centerTitle, deep, shadow, c
         ].join(' ')}
       >
         {dots && (
-          <div className="flex gap-[7px]" aria-hidden="true">
+          <div className="flex gap-1.75" aria-hidden="true">
             {[0, 1, 2].map((i) => (
-              <span key={i} className={deep ? 'size-[9px] rounded-full bg-dot' : 'size-[11px] rounded-full bg-line-3'} />
+              <span key={i} className={deep ? 'size-2.25 rounded-full bg-dot' : 'size-2.75 rounded-full bg-line-3'} />
             ))}
           </div>
         )}

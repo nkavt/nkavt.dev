@@ -68,7 +68,7 @@
 }
 
 @utility btn {
-  @apply inline-flex items-center justify-center gap-2.5 rounded-lg px-[22px] py-[15px] font-mono text-[15px] whitespace-nowrap;
+  @apply inline-flex items-center justify-center gap-2.5 rounded-lg px-5.5 py-3.75 font-mono text-[15px] whitespace-nowrap;
 }
 
 @utility btn-primary {
@@ -84,7 +84,7 @@
 }
 
 @utility status-pill {
-  @apply inline-flex items-center gap-2 rounded-full bg-green/12 px-2.5 py-[5px] font-mono text-[13px] text-green-2;
+  @apply inline-flex items-center gap-2 rounded-full bg-green/12 px-2.5 py-1.25 font-mono text-[13px] text-green-2;
 }
 
 @utility status-dot {
@@ -135,7 +135,7 @@
   }
 
   .readme li {
-    @apply relative border-b border-line-2 py-[18px] pr-5 pl-[52px] last:border-b-0 md:pl-[76px];
+    @apply relative border-b border-line-2 py-4.5 pr-5 pl-13 last:border-b-0 md:pl-19;
     counter-increment: item;
   }
 

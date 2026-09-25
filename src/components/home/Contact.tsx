@@ -24,7 +24,7 @@ export default function Contact() {
             <div>
               <span className="prompt">$</span> cat contact.txt
             </div>
-            <dl className="grid grid-cols-[76px_1fr] gap-y-2.5 md:grid-cols-[110px_1fr] md:gap-y-3.5 md:pl-[18px] [&_dd]:wrap-anywhere [&_dt]:text-muted">
+            <dl className="grid grid-cols-[76px_1fr] gap-y-2.5 md:grid-cols-[110px_1fr] md:gap-y-3.5 md:pl-4.5 [&_dd]:wrap-anywhere [&_dt]:text-muted">
               <dt>email</dt>
               <dd>
                 <a href={`mailto:${site.email}`}>{site.email}</a>
@@ -42,7 +42,7 @@ export default function Contact() {
             </dl>
             <div className="flex items-center gap-2">
               <span className="prompt">$</span>
-              <span className="h-[18px] w-[9px] animate-blink bg-fg" aria-hidden="true" />
+              <span className="h-4.5 w-2.25 animate-blink bg-fg" aria-hidden="true" />
             </div>
           </div>
         </Window>

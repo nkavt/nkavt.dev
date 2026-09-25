@@ -23,12 +23,12 @@ export default function ProjectReadme({ project, children }: Props) {
 
       <div className="grid items-start gap-10 gutter pt-10 pb-12 lg:grid-cols-[1fr_320px] lg:gap-16 lg:pt-16 lg:pb-24">
         <article className="flex min-w-0 flex-col gap-8 md:gap-11">
-          <div className="flex flex-col gap-[18px]">
+          <div className="flex flex-col gap-4.5">
             <div className="flex items-center gap-5">
               <ProjectIcon name={project.icon} size={64} />
               <h1 className="text-[44px] leading-none font-semibold tracking-[-0.04em] md:text-[80px]">{project.name}</h1>
             </div>
-            <p className="max-w-[760px] text-[17px] leading-[1.55] text-fg-2 md:text-[21px]">{project.blurb}</p>
+            <p className="max-w-190 text-[17px] leading-[1.55] text-fg-2 md:text-[21px]">{project.blurb}</p>
             <div className="flex flex-wrap gap-2">
               <span className="chip">{project.language}</span>
               {project.license && <span className="chip">{project.license}</span>}
@@ -64,7 +64,7 @@ export default function ProjectReadme({ project, children }: Props) {
                 ) : media ? (
                   <img src={media.src} width={media.width} height={media.height} alt={media.alt} loading="lazy" className="block w-full" />
                 ) : (
-                  <div className="flex h-60 items-center justify-center px-5 text-center font-mono text-[13px] text-muted md:h-[460px]">
+                  <div className="flex h-60 items-center justify-center px-5 text-center font-mono text-[13px] text-muted md:h-115">
                     [terminal recording, GIF or screenshot of {project.name} in action]
                   </div>
                 )}

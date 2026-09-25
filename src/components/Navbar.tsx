@@ -64,11 +64,11 @@ export default function Navbar({ currentPath = '/' }: Props) {
   const current = (href: string) => (onHome ? sectionId(href) === activeSection : isActive(href, currentPath));
 
   return (
-    <nav className="sticky top-0 z-50 flex h-16 items-center justify-between border-b border-line bg-bg/92 gutter font-mono backdrop-blur-sm md:h-[72px]">
+    <nav className="sticky top-0 z-50 flex h-16 items-center justify-between border-b border-line bg-bg/92 gutter font-mono backdrop-blur-sm md:h-18">
       <a href="/" className="flex items-center gap-0.5 py-3 text-[15px] font-semibold hover:text-fg md:text-base" aria-label="Home">
         <span className="text-accent">~/</span>
         <span>{site.handle}</span>
-        <span className="ml-1 h-4 w-2 animate-blink bg-accent md:h-[18px] md:w-[9px]" aria-hidden="true" />
+        <span className="ml-1 h-4 w-2 animate-blink bg-accent md:h-4.5 md:w-2.25" aria-hidden="true" />
       </a>
 
       <div className="hidden items-center gap-1 text-sm md:flex">
