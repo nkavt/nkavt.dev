@@ -14,14 +14,14 @@ export default function ProjectReadme({ project, children }: Props) {
   return (
     <div className="flex min-h-[calc(100vh-64px)] flex-col md:min-h-[calc(100vh-72px)]">
       <nav
-        className="gutter border-b border-line py-5 font-mono text-xs text-muted md:text-sm [&_a]:text-fg-3 [&_a:hover]:text-accent"
+        className="border-b border-line gutter py-5 font-mono text-xs text-muted md:text-sm [&_a]:text-fg-3 [&_a:hover]:text-accent"
         aria-label="Breadcrumb"
       >
         <a href="/">~</a> / <a href="/projects">projects</a> / <span className="text-fg-3">{project.slug}</span> /{' '}
         <span className="text-fg">README.md</span>
       </nav>
 
-      <div className="gutter grid items-start gap-10 pt-10 pb-12 lg:grid-cols-[1fr_320px] lg:gap-16 lg:pt-16 lg:pb-24">
+      <div className="grid items-start gap-10 gutter pt-10 pb-12 lg:grid-cols-[1fr_320px] lg:gap-16 lg:pt-16 lg:pb-24">
         <article className="flex min-w-0 flex-col gap-8 md:gap-11">
           <div className="flex flex-col gap-[18px]">
             <div className="flex items-center gap-5">
