@@ -1,0 +1,23 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../components/home/Hero';
+import Projects from '../components/home/Projects';
+import Experience from '../components/home/Experience';
+import About from '../components/home/About';
+import Contact from '../components/home/Contact';
+import { getProjects, getExperience, getHero } from '../lib/content';
+
+const hero = await getHero();
+const projects = await getProjects();
+const roles = await getExperience();
+---
+
+<BaseLayout>
+  <main>
+    <Hero hero={hero} />
+    <Projects projects={projects} />
+    <Experience roles={roles} />
+    <About />
+    <Contact />
+  </main>
+</BaseLayout>

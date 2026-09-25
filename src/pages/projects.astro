@@ -1,0 +1,11 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ProjectsIndex from '../components/projects/ProjectsIndex';
+import { getProjects } from '../lib/content';
+
+const projects = await getProjects();
+---
+
+<BaseLayout title="Projects" description="Things I build outside of work, mostly open source and mostly for fun.">
+  <ProjectsIndex projects={projects} />
+</BaseLayout>
