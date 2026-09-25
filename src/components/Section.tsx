@@ -18,7 +18,7 @@ export default function Section({ number, title, id, aside, noBorder, className 
   return (
     <section
       id={id}
-      className={`flex flex-col gap-6 gutter py-12 md:gap-10 md:py-24 ${noBorder ? 'md:pt-[104px]' : 'border-t border-line'} ${className}`}
+      className={`flex flex-col gap-6 gutter py-12 md:gap-10 md:py-24 ${noBorder ? 'md:pt-26' : 'border-t border-line'} ${className}`}
     >
       <div className="flex items-center justify-between gap-3 md:justify-start md:gap-6">
         <h2 className="text-[26px] leading-[1.1] font-semibold tracking-[-0.02em] md:text-4xl md:whitespace-nowrap">

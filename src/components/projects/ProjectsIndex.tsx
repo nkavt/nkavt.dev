@@ -13,13 +13,13 @@ export default function ProjectsIndex({ projects }: Props) {
 
   return (
     <div className="flex min-h-[calc(100vh-64px)] flex-col md:min-h-[calc(100vh-72px)]">
-      <header className="flex flex-col items-start gap-6 border-b border-line grid-bg gutter pt-12 pb-10 md:flex-row md:items-end md:justify-between md:gap-12 md:pt-[88px] md:pb-14">
-        <div className="flex flex-col gap-[22px]">
+      <header className="flex flex-col items-start gap-6 border-b border-line grid-bg gutter pt-12 pb-10 md:flex-row md:items-end md:justify-between md:gap-12 md:pt-22 md:pb-14">
+        <div className="flex flex-col gap-5.5">
           <div className="font-mono text-[15px] text-fg-3">
             <span className="prompt">$</span> ls -la ./projects
           </div>
           <h1 className="text-[52px] leading-none font-semibold tracking-[-0.04em] md:text-[88px]">Projects</h1>
-          <p className="max-w-[600px] text-base/relaxed text-fg-2 md:text-[19px]">
+          <p className="max-w-150 text-base/relaxed text-fg-2 md:text-[19px]">
             Things I build outside of work, mostly open source and mostly for fun.
           </p>
         </div>
@@ -40,7 +40,7 @@ export default function ProjectsIndex({ projects }: Props) {
                 href={p.href}
                 className="flex flex-col overflow-hidden rounded-[14px] border border-line-2 bg-surface text-fg hover:border-line-3 hover:text-fg"
               >
-                <div className="flex h-[180px] items-center justify-center overflow-hidden border-b border-line-2 bg-surface-2 font-mono text-xs text-muted">
+                <div className="flex h-45 items-center justify-center overflow-hidden border-b border-line-2 bg-surface-2 font-mono text-xs text-muted">
                   {p.cover ? (
                     <img src={p.cover.src} width={p.cover.width} height={p.cover.height} alt={p.cover.alt} loading="lazy" className="size-full object-cover object-top-left" />
                   ) : (

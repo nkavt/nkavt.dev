@@ -26,7 +26,7 @@ export default function FeaturedProject({ project, index, facts = 'chips' }: Pro
               className="block aspect-3/2 w-full object-cover object-top-left"
             />
           ) : (
-            <div className="relative flex h-[200px] flex-col items-center justify-center gap-3 md:h-[340px] md:gap-4">
+            <div className="relative flex h-50 flex-col items-center justify-center gap-3 md:h-85 md:gap-4">
               <ProjectIcon name={project.icon} size={64} className="max-md:size-11" />
               <div className="font-mono text-[40px] leading-none font-semibold tracking-[-0.04em] md:text-[56px]">{project.slug}</div>
               {project.installCommand && (
@@ -39,7 +39,7 @@ export default function FeaturedProject({ project, index, facts = 'chips' }: Pro
         </Window>
       </div>
 
-      <div className="flex flex-col gap-3 p-[22px] md:gap-5 md:p-11">
+      <div className="flex flex-col gap-3 p-5.5 md:gap-5 md:p-11">
         <div className="flex items-center justify-between font-mono text-xs md:text-[13px]">
           <span className="inline-flex items-center gap-2.5 text-fg-3">
             {index ? (
