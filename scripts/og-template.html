@@ -3,43 +3,25 @@
 <head>
 <meta charset="utf-8">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@600&display=swap" rel="stylesheet">
 <style>
   * { box-sizing: border-box; margin: 0; }
-  html, body { width: 1200px; height: 630px; background: #0b0d10; color: #e6e8eb; font-family: 'Geist', system-ui, sans-serif; -webkit-font-smoothing: antialiased; }
-  .card {
-    width: 1200px; height: 630px; padding: 72px 80px; display: flex; align-items: center; gap: 64px; position: relative; overflow: hidden;
-    background-image: linear-gradient(#11151a 1px, transparent 1px), linear-gradient(90deg, #11151a 1px, transparent 1px);
-    background-size: 48px 48px;
-  }
-  .card::after { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse at 20% 50%, rgba(126,231,135,0.10), transparent 55%); pointer-events: none; }
+  html, body { width: 400px; height: 400px; background: #0b0d10; }
   .tile {
-    flex: none; width: 300px; height: 300px; border-radius: 48px; background: #0f1216; border: 1px solid #2a3038;
-    display: flex; align-items: center; justify-content: center; box-shadow: 0 40px 80px rgba(0,0,0,0.5);
-    font-family: 'JetBrains Mono', monospace; font-size: 168px; font-weight: 600; color: #7ee787; letter-spacing: -0.06em; line-height: 1;
-    position: relative; z-index: 1;
+    width: 400px; height: 400px; display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden;
+    background: #0b0d10;
+    background-image: linear-gradient(#11151a 1px, transparent 1px), linear-gradient(90deg, #11151a 1px, transparent 1px);
+    background-size: 40px 40px;
   }
-  .tile .cursor { display: inline-block; width: 22px; height: 120px; margin-left: 18px; background: #7ee787; vertical-align: -6px; }
-  .text { display: flex; flex-direction: column; gap: 22px; min-width: 0; position: relative; z-index: 1; }
-  .prompt { font-family: 'JetBrains Mono', monospace; font-size: 26px; color: #8b93a1; }
-  .prompt b { color: #7ee787; font-weight: 500; }
-  h1 { font-size: 84px; font-weight: 600; letter-spacing: -0.04em; line-height: 0.98; }
-  .role { font-family: 'JetBrains Mono', monospace; font-size: 30px; color: #7ee787; }
-  .lede { font-size: 27px; line-height: 1.45; color: #a4acb9; max-width: 640px; }
-  .site { position: absolute; right: 80px; bottom: 56px; font-family: 'JetBrains Mono', monospace; font-size: 24px; color: #5b6370; z-index: 1; }
-  .site b { color: #e6e8eb; font-weight: 500; }
+  .tile::after { content: ''; position: absolute; inset: 0; background: radial-gradient(circle at 50% 55%, rgba(126,231,135,0.14), transparent 60%); }
+  .glyph {
+    position: relative; z-index: 1; display: flex; align-items: center;
+    font-family: 'JetBrains Mono', monospace; font-size: 190px; font-weight: 600; color: #7ee787; letter-spacing: -0.06em; line-height: 1;
+  }
+  .cursor { display: inline-block; width: 26px; height: 136px; margin-left: 20px; background: #7ee787; }
 </style>
 </head>
 <body>
-<div class="card">
-  <div class="tile">~/<span class="cursor"></span></div>
-  <div class="text">
-    <div class="prompt"><b>$</b> whoami</div>
-    <h1>Nikoloz<br>Kavtaradze</h1>
-    <div class="role">senior full-stack engineer</div>
-    <p class="lede">Ten years shipping web software across Rails, Node.js and Laravel, with React and TypeScript on the front.</p>
-  </div>
-  <div class="site"><b>nkavt.dev</b></div>
-</div>
+<div class="tile"><div class="glyph">~/<span class="cursor"></span></div></div>
 </body>
 </html>
