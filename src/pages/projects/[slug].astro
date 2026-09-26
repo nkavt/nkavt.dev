@@ -14,7 +14,7 @@ const project = await toProject(entry);
 const { Content } = await render(entry);
 ---
 
-<BaseLayout title={project.name} description={project.blurb}>
+<BaseLayout title={project.name} description={project.blurb} image={project.share?.src} imageAlt={project.share?.alt}>
   <ProjectReadme project={project}>
     <Content />
   </ProjectReadme>
