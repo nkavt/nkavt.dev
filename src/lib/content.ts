@@ -21,6 +21,8 @@ export type Project = Omit<ProjectData, 'cover' | 'demo' | 'demoVideo'> & {
   cover?: Cover;
   demo?: Cover;
   demoVideo?: string;
+  /** PNG version of the cover for social share previews (WebP is not universally supported there). */
+  share?: Cover;
 };
 
 /** A role as the React components consume it: frontmatter plus the plain-text summary. */
@@ -29,9 +31,14 @@ export type Role = CollectionEntry<'experience'>['data'] & { summary: string };
 /** The hero section's copy: frontmatter plus the lede paragraph from the body. */
 export type Hero = CollectionEntry<'home'>['data'] & { lede: string };
 
-async function resolveImage(src: ImageInput | undefined, alt: string): Promise<Cover | undefined> {
+async function resolveImage(
+  src: ImageInput | undefined,
+  alt: string,
+  opts: { width?: number; format?: 'png' } = {},
+): Promise<Cover | undefined> {
   if (!src) return undefined;
-  const img = await getImage({ src, width: 1320, format: src.format === 'gif' ? 'gif' : 'webp' });
+  const format = opts.format ?? (src.format === 'gif' ? 'gif' : 'webp');
+  const img = await getImage({ src, width: opts.width ?? 1320, format });
   return { src: img.src, width: img.attributes.width as number, height: img.attributes.height as number, alt };
 }
 
@@ -55,6 +62,7 @@ export async function toProject(entry: CollectionEntry<'projects'>): Promise<Pro
     cover: await resolveImage(cover, data.coverAlt ?? `${data.name} screenshot`),
     demo: await resolveImage(demo, data.demoAlt ?? `${data.name} demo`),
     demoVideo: resolveVideo(entry.filePath, demoVideo),
+    share: await resolveImage(cover, data.coverAlt ?? `${data.name} screenshot`, { width: 1200, format: 'png' }),
   };
 }
 

@@ -10,6 +10,11 @@ import globals from 'globals';
 
 export default tseslint.config(
   { ignores: ['dist/', '.astro/', 'node_modules/', 'public/'] },
+  {
+    // Build-time scripts run in Node and drive a headless browser
+    files: ['scripts/**/*.{js,mjs}', '*.config.{js,mjs}'],
+    languageOptions: { globals: { ...globals.node, ...globals.browser } },
+  },
   js.configs.recommended,
   ...tseslint.configs.recommended,
   ...astro.configs.recommended,
