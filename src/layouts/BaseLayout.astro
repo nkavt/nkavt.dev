@@ -6,7 +6,7 @@ import { site } from '../data/site';
 interface Props {
   title?: string;
   description?: string;
-  /** Share image path or URL. Defaults to the square icon in public/og.png; a wide image switches to the large-card layout. */
+  /** Share image path or URL. Defaults to the square icon in public/share-icon.png; a wide image switches to the large-card layout. */
   image?: string;
   imageAlt?: string;
 }
@@ -14,7 +14,7 @@ interface Props {
 const {
   title = site.name,
   description = site.tagline,
-  image = '/og.png',
+  image = '/share-icon.png',
   imageAlt = `${site.name}, ${site.role}`,
 } = Astro.props;
 
@@ -40,10 +40,10 @@ const imageUrl = new URL(image, Astro.site);
     <meta property="og:description" content={description} />
     <meta property="og:image" content={imageUrl} />
     <meta property="og:image:alt" content={imageAlt} />
-    {image === '/og.png' && <meta property="og:image:width" content="400" />}
-    {image === '/og.png' && <meta property="og:image:height" content="400" />}
+    {image === '/share-icon.png' && <meta property="og:image:width" content="400" />}
+    {image === '/share-icon.png' && <meta property="og:image:height" content="400" />}
 
-    <meta name="twitter:card" content={image === '/og.png' ? 'summary' : 'summary_large_image'} />
+    <meta name="twitter:card" content={image === '/share-icon.png' ? 'summary' : 'summary_large_image'} />
     <meta name="twitter:title" content={fullTitle} />
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={imageUrl} />
