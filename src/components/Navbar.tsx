@@ -84,7 +84,7 @@ export default function Navbar({ currentPath = '/' }: Props) {
           </a>
         ))}
         {site.available && (
-          <a href="/#contact" className="ml-4 inline-flex items-center gap-2.5 rounded-lg border border-line-3 px-4 py-2.5 text-[13px]">
+          <a href="/#contact" className="ml-4 inline-flex shrink-0 items-center gap-2.5 rounded-lg border border-line-3 px-4 py-2.5 text-[13px] whitespace-nowrap">
             <span className="size-2 rounded-full bg-green shadow-[0_0_0_4px_rgba(63,185,80,0.18)]" />
             available for work
           </a>
