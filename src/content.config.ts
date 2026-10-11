@@ -21,7 +21,7 @@ const projects = defineCollection({
     installCommand: z.string().optional(),
     github: z.string().default('#'),
     docs: z.object({ label: z.string(), href: z.string() }).optional(),
-    icon: z.enum(['lock']).default('lock'),
+    icon: z.enum(['lock', 'target']).default('lock'),
     /** Screenshot beside this file, e.g. ./locket-cover.png. Shown on cards and the project page. */
     cover: image().optional(),
     coverAlt: z.string().optional(),
@@ -30,6 +30,8 @@ const projects = defineCollection({
     demoAlt: z.string().optional(),
     /** MP4 version of the demo beside this file, e.g. ./locket-demo.mp4. Played muted on loop; the GIF is the fallback. */
     demoVideo: z.string().optional(),
+    /** CLI output shown in a terminal window instead of a cover, for command-line projects. One string per line. */
+    terminal: z.array(z.string()).optional(),
     /** Lower comes first. The first project is the featured one. */
     order: z.number().default(100),
   }),

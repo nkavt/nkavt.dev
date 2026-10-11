@@ -2,6 +2,7 @@ import type { Project } from '../lib/content';
 import Window from './Window';
 import ProjectIcon from './ProjectIcon';
 import FolderIcon from './FolderIcon';
+import Terminal from './Terminal';
 
 interface Props {
   project: Project;
@@ -14,7 +15,7 @@ interface Props {
 export default function FeaturedProject({ project, index, facts = 'chips' }: Props) {
   return (
     <article className="grid overflow-hidden rounded-2xl border border-line-2 bg-surface lg:grid-cols-[660px_1fr]">
-      <div className="border-b border-line-2 bg-surface-deep md:bg-surface-2 md:p-7 lg:border-r lg:border-b-0">
+      <div className="min-w-0 border-b border-line-2 bg-surface-deep md:bg-surface-2 md:p-7 lg:border-r lg:border-b-0">
         <Window title={project.cover ? `${project.slug} · app` : `${project.slug} · zsh`} dots deep className="max-md:rounded-none max-md:border-0">
           {project.cover ? (
             <img
@@ -25,6 +26,10 @@ export default function FeaturedProject({ project, index, facts = 'chips' }: Pro
               loading="lazy"
               className="block aspect-3/2 w-full object-cover object-top-left"
             />
+          ) : project.terminal ? (
+            <div className="flex flex-col justify-center overflow-hidden px-5 py-5 mask-r-from-85% md:aspect-3/2 md:px-6">
+              <Terminal lines={project.terminal} className="text-[11px] leading-[1.7] md:text-[13px]" />
+            </div>
           ) : (
             <div className="relative flex h-50 flex-col items-center justify-center gap-3 md:h-85 md:gap-4">
               <ProjectIcon name={project.icon} size={64} className="max-md:size-11" />
@@ -95,6 +100,11 @@ export default function FeaturedProject({ project, index, facts = 'chips' }: Pro
           {project.github !== '#' && (
             <a href={project.github} target="_blank" rel="noopener noreferrer" className="text-fg-3">
               github ↗
+            </a>
+          )}
+          {project.docs && (
+            <a href={project.docs.href} target="_blank" rel="noopener noreferrer" className="text-fg-3">
+              {project.docs.label} ↗
             </a>
           )}
         </div>

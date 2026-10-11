@@ -3,6 +3,7 @@ import type { Project } from '../../lib/content';
 import Window from '../Window';
 import Footer from '../Footer';
 import ProjectIcon from '../ProjectIcon';
+import Terminal from '../Terminal';
 
 interface Props {
   project: Project;
@@ -42,9 +43,9 @@ export default function ProjectReadme({ project, children }: Props) {
 
           {(() => {
             const media = project.demo ?? project.cover;
-            const kind = project.demoVideo || project.demo ? 'demo' : project.cover ? 'app' : 'demo';
+            const kind = project.demoVideo || project.demo ? 'demo' : project.cover ? 'app' : project.terminal ? 'zsh' : 'demo';
             return (
-              <Window title={`${project.slug} · ${kind}`} dots deep>
+              <Window title={`${project.slug} · ${kind}`} dots deep className="mx-auto w-full max-w-240">
                 {project.demoVideo && media ? (
                   <video
                     className="block w-full"
@@ -63,6 +64,10 @@ export default function ProjectReadme({ project, children }: Props) {
                   </video>
                 ) : media ? (
                   <img src={media.src} width={media.width} height={media.height} alt={media.alt} loading="lazy" className="block w-full" />
+                ) : project.terminal ? (
+                  <div className="overflow-x-auto px-5 py-5 md:px-7 md:py-6">
+                    <Terminal lines={project.terminal} className="text-xs leading-[1.7] md:text-sm" />
+                  </div>
                 ) : (
                   <div className="flex h-60 items-center justify-center px-5 text-center font-mono text-[13px] text-muted md:h-115">
                     [terminal recording, GIF or screenshot of {project.name} in action]

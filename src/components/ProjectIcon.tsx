@@ -16,6 +16,14 @@ const icons: Record<Project['icon'], ReactNode> = {
       <circle cx="12" cy="16" r="1.2" />
     </>
   ),
+  target: (
+    <>
+      <circle cx="12" cy="12" r="8" />
+      <circle cx="12" cy="12" r="4" />
+      <circle cx="12" cy="12" r="1.2" />
+      <path d="M12 2v3M12 19v3M2 12h3M19 12h3" />
+    </>
+  ),
 };
 
 export default function ProjectIcon({ name, size = 64, className = '' }: Props) {
