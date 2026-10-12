@@ -1,13 +1,13 @@
 ---
 name: Jobhunter
-blurb: An AI job hunter for your terminal. It reads your CV, checks remote job boards, scores every new job against your profile, and tracks them all in a Google Sheet in your own Drive.
+blurb: An AI job hunter for your terminal. It reads your CV, checks remote job boards, scores every new job against your profile, and tracks them all in a spreadsheet on your computer or in Google Sheets.
 category: cli tool
 status: open source
 active: true
 language: typescript
 license: MIT
 started: "2026"
-topics: [cli, node, claude, google-sheets]
+topics: [cli, node, claude, xlsx, google-sheets]
 installCommand: "npm install -g jobhunter"
 github: https://github.com/nkavt/jobhunter
 docs: { label: "npm package", href: "https://www.npmjs.com/package/jobhunter" }
@@ -34,7 +34,7 @@ order: 2
 
 ## What it does
 
-Jobhunter is a command-line tool that finds jobs worth applying to. It turns your CV into a short candidate profile, fetches Remotive, Remote OK and We Work Remotely, and asks an AI to score each new job from 0 to 100 with a short note on fit, gaps and things to watch for. Everything goes into a Google Sheet with status tabs, so you never see the same job twice.
+Jobhunter is a command-line tool that finds jobs worth applying to. It turns your CV into a short candidate profile, fetches Remotive, Remote OK and We Work Remotely, and asks an AI to score each new job from 0 to 100 with a short note on fit, gaps and things to watch for. Everything goes into a tracking spreadsheet with status tabs, so you never see the same job twice. By default it's an `.xlsx` file on your computer, with no Google account needed; a Google Sheet in your Drive is the alternative.
 
 ## Getting started
 
@@ -42,7 +42,7 @@ Jobhunter is a command-line tool that finds jobs worth applying to. It turns you
 # install (Node 22.12+)
 $ npm install -g jobhunter
 
-# one-time setup: AI key, CV, preferences, Google sign-in, tracking sheet
+# one-time setup: AI key, CV, preferences, tracking sheet
 $ jobhunter init
 
 # find new jobs and add them to your sheet
@@ -51,13 +51,13 @@ $ jobhunter hunt
 
 ## How it works
 
-A TypeScript CLI that keeps your keys and profile on your machine and talks to Google only through the files it created.
+A TypeScript CLI that keeps your keys, profile and, by default, your tracking sheet on your machine.
 
 1. **CV as the source of truth** PDF, DOCX or Markdown CVs become a candidate profile, refined with a few preferences the CV can't answer: work mode, countries, visa, salary floor.
-2. **Cheap filters first, AI second** Code drops jobs that clearly don't fit (role, age, employment type, salary, companies to avoid). Only what's left is sent to Claude, so a daily hunt costs a few cents.
+2. **Cheap filters first, AI second** Code drops jobs that clearly don't fit (role, age, employment type, salary, companies to avoid). Only what's left is sent to Claude, scored in parallel batches, so a daily hunt is quick and costs a few cents.
 3. **Declarative feed mappings** Each job board is described by a mapping of fields and transforms rather than custom parser code, so adding a feed is data, not a new scraper.
-4. **Your sheet, your Drive** The `drive.file` scope means Jobhunter can only see the folder and sheet it created. Jobs already in any tab, including ones you added by hand, are skipped.
+4. **A local sheet, or your Drive** The default `.xlsx` file is written by a small built-in reader/writer, with the same tabs, dropdowns and status colours as the Google Sheet, live view tabs in LibreOffice and Excel, and a backup on every write. With Google Sheets, the `drive.file` scope means Jobhunter can only see the folder and sheet it created. Either way, jobs already in any tab, including ones you added by hand, are skipped.
 
 ## Contributing
 
-Early version (0.1) and in active development: more AI providers, more boards, and AI-assisted feed discovery are next. Issues and ideas are welcome on GitHub. Tests run with `npm test` and never touch your real config or the network.
+Early version (0.2) and in active development: more AI providers, more boards, and AI-assisted feed discovery are next. Issues and ideas are welcome on GitHub. Tests run with `npm test` and never touch your real config or the network.
