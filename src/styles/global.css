@@ -105,7 +105,7 @@
   @apply text-accent;
 }
 
-/* Markdown body of a project README (src/content/projects/*.md) */
+/* Markdown body of a project README (index.md in each src/content/projects folder) */
 @layer components {
   .readme {
     @apply flex flex-col gap-3.5 text-[15px] leading-[1.7] text-fg-2 md:text-[17px];

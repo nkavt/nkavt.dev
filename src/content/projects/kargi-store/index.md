@@ -7,7 +7,7 @@ active: true
 language: typescript
 started: "2026"
 topics: [medusa, nextjs, react, postgres, redis, tailwind, next-intl, docker]
-cover: ./kargi-store-home.webp
+cover: ./home.webp
 coverAlt: kargi.store home page with a promo banner, category shortcuts and the main navigation
 icon: bag
 order: 3
@@ -34,15 +34,15 @@ kargi.store is a headless online store for a Georgian shop with a broad, mixed c
 - Emails for order confirmation, payment received, shipped and cancelled, plus a new-order alert for the owner.
 - A sitemap, structured data and share images, and Latin URLs for products with Georgian names.
 
-![Product page with a sale price, a size picker and delivery and payment notes](./kargi-store-product.webp)
+![Product page with a sale price, a size picker and delivery and payment notes](./product.webp)
 
-![Accessories category under Electronics, with a price filter and sorting](./kargi-store-category.webp)
+![Accessories category under Electronics, with a price filter and sorting](./category.webp)
 
 Built mobile first, the same store on a phone:
 
-![Home page on a phone](./kargi-store-mobile-home.webp)
-![Product page on a phone with size M selected](./kargi-store-mobile-product.webp)
-![Checkout on a phone, starting with contact details](./kargi-store-mobile-checkout.webp)
+![Home page on a phone](./mobile-home.webp)
+![Product page on a phone with size M selected](./mobile-product.webp)
+![Checkout on a phone, starting with contact details](./mobile-checkout.webp)
 
 ## Challenges
 
@@ -53,11 +53,11 @@ Built mobile first, the same store on a phone:
 5. **Manual payments as real payment providers** Cash on delivery and bank transfer are Medusa payment providers, not notes on an order. Cash is authorised at checkout and captured when the courier collects it. A transfer order waits as "awaiting payment" until the owner confirms the money in the admin, and a daily job can cancel unpaid orders after a set number of days. Each method can be switched off from the admin.
 6. **Admin edits without stale pages** The storefront caches catalog data under shared tags. A backend subscriber turns product, price, stock, category and translation events into one revalidation call per burst, so changes show up within moments and a bulk import doesn't flood the storefront. Resized product images are cached for 30 days, and Cloudflare keeps a separate copy per format, so browsers without WebP still get a JPEG or PNG.
 
-![One-page checkout: contact details, the delivery address with Tbilisi selected, delivery priced for that city, and cash or bank transfer](./kargi-store-checkout.webp)
+![One-page checkout: contact details, the delivery address with Tbilisi selected, delivery priced for that city, and cash or bank transfer](./checkout.webp)
 
-![Search results for "watch"](./kargi-store-search.webp)
+![Search results for "watch"](./search.webp)
 
-![The Georgian home page at /ka](./kargi-store-georgian.webp)
+![The Georgian home page at /ka](./georgian.webp)
 
 ## Status
 

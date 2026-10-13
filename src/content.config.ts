@@ -2,8 +2,8 @@ import { defineCollection, z } from 'astro:content';
 import { glob } from 'astro/loaders';
 
 /**
- * Personal projects. One markdown file per project in src/content/projects/.
- * Frontmatter holds the facts; the markdown body is the README shown on /projects/<file-name>.
+ * Personal projects. One folder per project in src/content/projects/, with an index.md and its media.
+ * Frontmatter holds the facts; the markdown body is the README shown on /projects/<folder-name>.
  */
 const projects = defineCollection({
   loader: glob({ pattern: '**/*.md', base: './src/content/projects' }),
@@ -22,13 +22,13 @@ const projects = defineCollection({
     github: z.string().default('#'),
     docs: z.object({ label: z.string(), href: z.string() }).optional(),
     icon: z.enum(['lock', 'target', 'bag']).default('lock'),
-    /** Screenshot beside this file, e.g. ./locket-cover.png. Shown on cards and the project page. */
+    /** Screenshot in the project's folder, e.g. ./cover.png. Shown on cards and the project page. */
     cover: image().optional(),
     coverAlt: z.string().optional(),
-    /** Animated demo (GIF) beside this file. Shown in the demo window on the project page instead of the cover. */
+    /** Animated demo (GIF) in the project's folder. Shown in the demo window on the project page instead of the cover. */
     demo: image().optional(),
     demoAlt: z.string().optional(),
-    /** MP4 version of the demo beside this file, e.g. ./locket-demo.mp4. Played muted on loop; the GIF is the fallback. */
+    /** MP4 version of the demo in the project's folder, e.g. ./demo.mp4. Played muted on loop; the GIF is the fallback. */
     demoVideo: z.string().optional(),
     /** CLI output shown in a terminal window instead of a cover, for command-line projects. One string per line. */
     terminal: z.array(z.string()).optional(),

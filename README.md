@@ -28,9 +28,9 @@ Changes to `src/content.config.ts` need a dev server restart. Content files and 
 
 ## Editing content
 
-### Projects: `src/content/projects/<slug>.md`
+### Projects: `src/content/projects/<slug>/index.md`
 
-The file name becomes the URL, so `locket.md` is served at `/projects/locket`. Frontmatter holds the facts, the markdown body is the README shown on the project page.
+One folder per project. The folder name becomes the URL, so `locket/index.md` is served at `/projects/locket`. Frontmatter holds the facts, the markdown body is the README shown on the project page.
 
 ```yaml
 ---
@@ -47,14 +47,14 @@ installCommand: "claude mcp add --transport http locket http://127.0.0.1:7821/mc
 github: https://github.com/nkavt/Locket
 docs: { label: Documentation, href: https://example.com }   # optional
 icon: lock                 # see src/components/ProjectIcon.tsx
-cover: ./locket-cover.png  # screenshot beside this file
-demo: ./locket-demo.gif    # optional animated fallback
-demoVideo: ./locket-demo.mp4   # optional, played muted on loop
+cover: ./cover.png         # screenshot in the project's folder
+demo: ./demo.gif           # optional animated fallback
+demoVideo: ./demo.mp4      # optional, played muted on loop
 order: 1                   # lowest is the featured project
 ---
 ```
 
-Media sits next to the markdown file. Images go through Astro's image pipeline, the video is copied as is. In the body, `##` headings, numbered lists and fenced code blocks are styled to match the design.
+Media sits in the project's folder next to `index.md`. Images go through Astro's image pipeline (WebP with a srcset), the video is copied as is. In the body, `##` headings, numbered lists, fenced code blocks and `![alt](./image.webp)` images are styled to match the design; several images in one paragraph sit side by side.
 
 ### Experience: `src/content/experience/<company>.md`
 

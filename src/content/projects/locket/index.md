@@ -10,10 +10,10 @@ started: "2026"
 topics: [electron, react, sqlite, mcp]
 installCommand: "claude mcp add --transport http locket http://127.0.0.1:7821/mcp"
 github: https://github.com/nkavt/Locket
-cover: ./locket-cover.png
+cover: ./cover.png
 coverAlt: Locket showing a Portfolio project with tickets grouped by status
-demo: ./locket-demo.gif
-demoVideo: ./locket-demo.mp4
+demo: ./demo.gif
+demoVideo: ./demo.mp4
 demoAlt: Opening a ticket in Locket, moving it to In Progress and leaving a comment
 icon: lock
 order: 1
