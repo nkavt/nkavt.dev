@@ -156,6 +156,15 @@
     @apply bg-transparent;
   }
 
+  .readme img {
+    @apply block h-auto w-full rounded-xl border border-line-2;
+  }
+
+  /* Several images in one paragraph (e.g. phone screenshots) sit side by side */
+  .readme p:has(> img + img) {
+    @apply grid grid-cols-3 gap-3 md:gap-5;
+  }
+
   .readme :not(pre) > code {
     @apply rounded border border-line-3 bg-surface px-1.5 py-0.5 font-mono text-[0.9em] text-fg;
   }

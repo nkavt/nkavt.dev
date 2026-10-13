@@ -20,6 +20,8 @@ export default function FeaturedProject({ project, index, facts = 'chips' }: Pro
           {project.cover ? (
             <img
               src={project.cover.src}
+              srcSet={project.cover.srcSet}
+              sizes="(min-width: 1024px) 604px, 100vw"
               width={project.cover.width}
               height={project.cover.height}
               alt={project.cover.alt}
@@ -27,7 +29,7 @@ export default function FeaturedProject({ project, index, facts = 'chips' }: Pro
               className="block aspect-3/2 w-full object-cover object-top-left"
             />
           ) : project.terminal ? (
-            <div className="flex flex-col justify-center overflow-hidden px-5 py-5 mask-r-from-85% md:aspect-3/2 md:px-6">
+            <div className="flex flex-col justify-center overflow-hidden mask-r-from-85% p-5 md:aspect-3/2 md:px-6">
               <Terminal lines={project.terminal} className="text-[11px] leading-[1.7] md:text-[13px]" />
             </div>
           ) : (

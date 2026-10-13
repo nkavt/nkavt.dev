@@ -6,6 +6,8 @@ const videos = import.meta.glob<string>('/src/content/**/*.{mp4,webm}', { eager:
 
 export interface Cover {
   src: string;
+  /** Resized copies for sharp display on retina screens; the component sets the matching `sizes`. */
+  srcSet?: string;
   width: number;
   height: number;
   alt: string;
@@ -38,8 +40,11 @@ async function resolveImage(
 ): Promise<Cover | undefined> {
   if (!src) return undefined;
   const format = opts.format ?? (src.format === 'gif' ? 'gif' : 'webp');
-  const img = await getImage({ src, width: opts.width ?? 1320, format });
-  return { src: img.src, width: img.attributes.width as number, height: img.attributes.height as number, alt };
+  const width = opts.width ?? 1320;
+  // Animated GIFs and share images stay a single file; screenshots get 2x copies for retina screens.
+  const widths = format === 'webp' ? [640, 960, 1320, 1920, 2640].filter((w) => w <= src.width) : undefined;
+  const img = await getImage({ src, width: Math.min(width, src.width), format, layout: 'none', ...(widths?.length ? { widths } : {}) });
+  return { src: img.src, srcSet: img.srcSet.attribute || undefined, width: img.attributes.width as number, height: img.attributes.height as number, alt };
 }
 
 /** Resolve a `./file.mp4` reference in frontmatter against the entry's own folder. */

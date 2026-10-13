@@ -24,6 +24,12 @@ const icons: Record<Project['icon'], ReactNode> = {
       <path d="M12 2v3M12 19v3M2 12h3M19 12h3" />
     </>
   ),
+  bag: (
+    <>
+      <path d="M5 8h14l-1 13H6L5 8Z" />
+      <path d="M9 11V6a3 3 0 0 1 6 0v5" />
+    </>
+  ),
 };
 
 export default function ProjectIcon({ name, size = 64, className = '' }: Props) {

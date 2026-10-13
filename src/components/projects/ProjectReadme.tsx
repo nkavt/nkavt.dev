@@ -45,7 +45,7 @@ export default function ProjectReadme({ project, children }: Props) {
             const media = project.demo ?? project.cover;
             const kind = project.demoVideo || project.demo ? 'demo' : project.cover ? 'app' : project.terminal ? 'zsh' : 'demo';
             return (
-              <Window title={`${project.slug} · ${kind}`} dots deep className="mx-auto w-full max-w-240">
+              <Window title={`${project.slug} · ${kind}`} dots deep className="w-full">
                 {project.demoVideo && media ? (
                   <video
                     className="block w-full"
@@ -63,9 +63,18 @@ export default function ProjectReadme({ project, children }: Props) {
                     <img src={media.src} width={media.width} height={media.height} alt={media.alt} loading="lazy" className="block w-full" />
                   </video>
                 ) : media ? (
-                  <img src={media.src} width={media.width} height={media.height} alt={media.alt} loading="lazy" className="block w-full" />
+                  <img
+                    src={media.src}
+                    srcSet={media.srcSet}
+                    sizes="(min-width: 1024px) min(1224px, calc(100vw - 576px)), 100vw"
+                    width={media.width}
+                    height={media.height}
+                    alt={media.alt}
+                    loading="lazy"
+                    className="block w-full"
+                  />
                 ) : project.terminal ? (
-                  <div className="overflow-x-auto px-5 py-5 md:px-7 md:py-6">
+                  <div className="overflow-x-auto p-5 md:px-7 md:py-6">
                     <Terminal lines={project.terminal} className="text-xs leading-[1.7] md:text-sm" />
                   </div>
                 ) : (
@@ -103,15 +112,17 @@ export default function ProjectReadme({ project, children }: Props) {
               <dd>{project.started}</dd>
             </dl>
           </div>
-          <a
-            href={project.github}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex justify-between rounded-[10px] bg-accent px-5 py-4 font-mono text-sm font-semibold text-bg hover:text-bg hover:brightness-108"
-          >
-            <span>view on github</span>
-            <span>↗</span>
-          </a>
+          {project.github !== '#' && (
+            <a
+              href={project.github}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex justify-between rounded-[10px] bg-accent px-5 py-4 font-mono text-sm font-semibold text-bg hover:text-bg hover:brightness-108"
+            >
+              <span>view on github</span>
+              <span>↗</span>
+            </a>
+          )}
           {project.docs && (
             <a href={project.docs.href} target="_blank" rel="noopener noreferrer" className="flex justify-between rounded-[10px] border border-line-3 px-5 py-4 font-mono text-sm">
               <span>{project.docs.label}</span>

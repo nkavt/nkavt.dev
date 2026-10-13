@@ -21,7 +21,7 @@ const projects = defineCollection({
     installCommand: z.string().optional(),
     github: z.string().default('#'),
     docs: z.object({ label: z.string(), href: z.string() }).optional(),
-    icon: z.enum(['lock', 'target']).default('lock'),
+    icon: z.enum(['lock', 'target', 'bag']).default('lock'),
     /** Screenshot beside this file, e.g. ./locket-cover.png. Shown on cards and the project page. */
     cover: image().optional(),
     coverAlt: z.string().optional(),
