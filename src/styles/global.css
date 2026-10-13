@@ -62,9 +62,9 @@
   }
 }
 
-/* Page gutter: 20px on mobile, 96px on desktop */
+/* Page gutter: 20px on mobile, 96px on desktop. Past an 1800px window (a 14" MacBook Pro on "More Space") content stays 1608px wide and centred while backgrounds and borders stay full width */
 @utility gutter {
-  @apply px-5 md:px-24;
+  @apply px-5 md:px-[max(6rem,calc((100%-1608px)/2))];
 }
 
 @utility btn {
