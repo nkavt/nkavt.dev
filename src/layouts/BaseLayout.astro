@@ -1,4 +1,5 @@
 ---
+import { Font } from 'astro:assets';
 import '../styles/global.css';
 import Navbar from '../components/Navbar';
 import { site } from '../data/site';
@@ -49,12 +50,8 @@ const imageUrl = new URL(image, Astro.site);
     <meta name="twitter:image" content={imageUrl} />
     <meta name="twitter:image:alt" content={imageAlt} />
 
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap"
-      rel="stylesheet"
-    />
+    <Font cssVariable="--font-geist" preload={[{ subset: 'latin' }]} />
+    <Font cssVariable="--font-jetbrains-mono" preload={[{ subset: 'latin' }]} />
   </head>
   <body>
     <Navbar client:load currentPath={Astro.url.pathname} />

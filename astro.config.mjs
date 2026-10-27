@@ -1,5 +1,5 @@
 // @ts-check
-import { defineConfig } from 'astro/config';
+import { defineConfig, fontProviders } from 'astro/config';
 
 import react from '@astrojs/react';
 
@@ -13,6 +13,27 @@ export default defineConfig({
   integrations: [react()],
   // Markdown images get a srcset, so README screenshots stay sharp on retina screens without sending phones the full-size file.
   image: { layout: 'constrained' },
+  // Fonts are downloaded at build time and served from our own domain, with metric-matched fallbacks to avoid layout shift.
+  fonts: [
+    {
+      provider: fontProviders.google(),
+      name: 'Geist',
+      cssVariable: '--font-geist',
+      weights: [400, 500, 600, 700],
+      styles: ['normal'],
+      subsets: ['latin', 'latin-ext'],
+      fallbacks: ['sans-serif'],
+    },
+    {
+      provider: fontProviders.google(),
+      name: 'JetBrains Mono',
+      cssVariable: '--font-jetbrains-mono',
+      weights: [400, 500, 600],
+      styles: ['normal'],
+      subsets: ['latin', 'latin-ext'],
+      fallbacks: ['monospace'],
+    },
+  ],
 
   vite: {
     plugins: [tailwindcss()]

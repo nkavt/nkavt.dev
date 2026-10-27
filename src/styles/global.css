@@ -28,8 +28,8 @@
   --color-white: #ffffff;
   --color-transparent: transparent;
 
-  --font-sans: 'Geist', system-ui, sans-serif;
-  --font-mono: 'JetBrains Mono', ui-monospace, monospace;
+  --font-sans: var(--font-geist);
+  --font-mono: var(--font-jetbrains-mono);
 
   --breakpoint-*: initial;
   --breakpoint-md: 900px;
