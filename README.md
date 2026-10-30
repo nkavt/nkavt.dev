@@ -50,6 +50,7 @@ icon: lock                 # see src/components/ProjectIcon.tsx
 cover: ./cover.png         # screenshot in the project's folder
 demo: ./demo.gif           # optional animated fallback
 demoVideo: ./demo.mp4      # optional, played muted on loop
+home: false                # optional, list only on /projects (default true)
 order: 1                   # lowest is the featured project
 ---
 ```

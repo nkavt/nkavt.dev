@@ -21,7 +21,7 @@ const projects = defineCollection({
     installCommand: z.string().optional(),
     github: z.string().default('#'),
     docs: z.object({ label: z.string(), href: z.string() }).optional(),
-    icon: z.enum(['lock', 'target', 'bag']).default('lock'),
+    icon: z.enum(['lock', 'target', 'bag', 'send']).default('lock'),
     /** Screenshot in the project's folder, e.g. ./cover.png. Shown on cards and the project page. */
     cover: image().optional(),
     coverAlt: z.string().optional(),
@@ -32,6 +32,8 @@ const projects = defineCollection({
     demoVideo: z.string().optional(),
     /** CLI output shown in a terminal window instead of a cover, for command-line projects. One string per line. */
     terminal: z.array(z.string()).optional(),
+    /** Set to false to list the project only on /projects, not in the home page's projects section. */
+    home: z.boolean().default(true),
     /** Lower comes first. The first project is the featured one. */
     order: z.number().default(100),
   }),

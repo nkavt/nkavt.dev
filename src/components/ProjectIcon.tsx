@@ -30,6 +30,12 @@ const icons: Record<Project['icon'], ReactNode> = {
       <path d="M9 11V6a3 3 0 0 1 6 0v5" />
     </>
   ),
+  send: (
+    <>
+      <path d="M21 3 3 10.5l7 3 3 7.5L21 3Z" />
+      <path d="m10 13.5 4.5-4.5" />
+    </>
+  ),
 };
 
 export default function ProjectIcon({ name, size = 64, className = '' }: Props) {

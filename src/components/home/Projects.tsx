@@ -4,9 +4,11 @@ import FeaturedProject from '../FeaturedProject';
 
 interface Props {
   projects: Project[];
+  /** Number of projects on /projects, shown in the "ls ./projects" link. Defaults to the projects shown here. */
+  total?: number;
 }
 
-export default function Projects({ projects }: Props) {
+export default function Projects({ projects, total = projects.length }: Props) {
   if (projects.length === 0) return null;
 
   return (
@@ -17,7 +19,7 @@ export default function Projects({ projects }: Props) {
       noBorder
       aside={
         <a href="/projects">
-          ls ./projects <span className="text-fg">({projects.length})</span> →
+          ls ./projects <span className="text-fg">({total})</span> →
         </a>
       }
     >

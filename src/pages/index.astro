@@ -15,7 +15,7 @@ const roles = await getExperience();
 <BaseLayout>
   <main>
     <Hero hero={hero} />
-    <Projects projects={projects} />
+    <Projects projects={projects.filter((p) => p.home)} total={projects.length} />
     <Experience roles={roles} />
     <About />
     <Contact />
