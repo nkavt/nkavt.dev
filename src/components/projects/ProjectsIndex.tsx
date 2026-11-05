@@ -40,7 +40,7 @@ export default function ProjectsIndex({ projects }: Props) {
               <span className="ml-1 inline-block h-4 w-2 -translate-y-0.5 bg-fg-3 align-middle" aria-hidden="true" />
             </div>
             <div className="text-base text-fg-2">
-              More projects land here as they ship. Until then, my day job work is on the home page.
+              More projects land here as they ship. Until then, my work history is on the home page.
             </div>
           </div>
           <a href="/#experience" className="btn shrink-0 btn-ghost">
