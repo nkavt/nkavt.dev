@@ -6,7 +6,7 @@ export const site = {
   email: 'nikoloz@kavtaradze.me',
   location: 'Tbilisi, GE · UTC+4',
   github: { label: 'github.com/nkavt', href: 'https://github.com/nkavt' },
-  linkedin: { label: 'linkedin.com/in/nikoloz-kavtaradze', href: 'https://linkedin.com/in/nikoloz-kavtaradze-012139166' },
+  linkedin: { label: 'linkedin.com/in/nkavt', href: 'https://linkedin.com/in/nkavt' },
   available: true,
   year: 2026,
 };
