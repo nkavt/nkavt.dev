@@ -23,6 +23,12 @@ order: 1
 
 Locket is a desktop app for planning work in projects and tickets. Everything is stored in a SQLite database on your machine: no account, no sync, no network calls. It also runs a built-in MCP server, so any MCP-capable agent can read and update the same tickets you see in the app, and their changes show up immediately.
 
+Tickets can carry images: paste, drop or pick screenshots into a description or comment and show them inline, and agents can attach their own, like before and after shots of a UI change.
+
+![A Locket ticket with a screenshot shown inline in its description](./ticket-images.webp)
+
+A menu bar icon starts and stops the MCP server with the window closed, so agents keep working while Locket sits in the background.
+
 ## Getting started
 
 ```shell
@@ -37,9 +43,9 @@ $ npm install && npm run dev
 
 Electron main process with SQLite through TypeORM, a React renderer, and one service layer shared by the renderer IPC and the MCP server.
 
-1. **Local only** One SQLite file holds projects, tickets, labels and comments. Nothing leaves the machine.
+1. **Local only** One SQLite file holds projects, tickets, labels and comments, with images saved as plain files beside it. Nothing leaves the machine.
 2. **One service layer** The MCP tools and the app's IPC handlers call the same services, so agents and humans get identical behaviour.
-3. **Streamable HTTP MCP** Ten tools and two resources, exposed on localhost so any client can attach without extra config.
+3. **Streamable HTTP MCP** Thirteen tools and two resources, including image attachments agents can upload and read back, exposed on localhost so any client can attach without extra config.
 
 ## Contributing
 
